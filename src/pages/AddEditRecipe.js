@@ -23,9 +23,13 @@ const AddEditRecipe = () => {
   const [categoryErrMessage, setCategoryErrMessage ] = useState(null);
   const { name, ingredients, instructions,category, prepTime, servings, cookTime, imageUrl} = formValue
 
-  const handleSubmit = () =>{
+  const handleSubmit = (e) =>{}
 
-  }
+  const onInputChange = (e) =>{}
+
+  const onCategoryChange = () =>{}
+
+  const onUploadImage = (file) =>{}
 
   return (
     <form onSubmit={handleSubmit} className="container mt-5 p-4 shadow-lg rounded bg-light">
@@ -137,7 +141,6 @@ const AddEditRecipe = () => {
         <input 
           type="file" 
           className="form-control" 
-          name=''
           onChange={(e) => onUploadImage(e.target.file)}
           id="image" 
         />
