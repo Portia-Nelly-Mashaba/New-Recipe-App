@@ -20,7 +20,9 @@ const Card = () => {
               alt="Admin"
               className="rounded-circle me-2"
             />
-            <div>Admin &middot; Mar 22, 2023 &middot; 2 min read</div>
+            <div>
+                Admin &middot; <br/>
+                Mar 22, 2023 &middot; 2 min read</div>
           </div>
           <h5 className="fw-bold">Miracle no-knead bread</h5>
           <p className="text-muted" style={{ fontSize: '0.9rem' }}>
@@ -51,7 +53,10 @@ const Card = () => {
               alt="Admin"
               className="rounded-circle me-2"
             />
-            <div>Admin &middot; Mar 22, 2023 &middot; 1 min read</div>
+            <div>
+                Admin &middot; <br />
+                Mar 22, 2023 &middot; 1 min read
+            </div>
           </div>
           <h5 className="fw-bold">Italian inspiration on a budget</h5>
           <p className="text-muted" style={{ fontSize: '0.9rem' }}>

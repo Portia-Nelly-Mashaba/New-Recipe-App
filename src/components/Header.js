@@ -11,8 +11,8 @@ const Header = () => {
       <Navbar expand="lg" className="justify-content-between">
         <Nav className="left-links">
           <Nav.Link href="/">HOME</Nav.Link>
-          <Nav.Link href="#blog">ADD RECIPE</Nav.Link>
-          <Nav.Link href="#about">MY RECIPE</Nav.Link>
+          <Nav.Link href="/add-recipe">ADD RECIPE</Nav.Link>
+          <Nav.Link href="/my-recipe">MY RECIPE</Nav.Link>
         </Nav>
         <div className="title-container">
         <FaAppleAlt className="me-3" style={{ color: '#9A616D', fontSize: '2rem' }} />

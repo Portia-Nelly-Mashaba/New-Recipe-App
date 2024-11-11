@@ -47,3 +47,25 @@ code {
   width: 100%;
   border-radius: 8px;
 }
+
+/* RecipeForm.css */
+form {
+  max-width: 750px !important;
+  margin: auto;
+}
+
+form h2 {
+  color: #333;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+button.btn-primary {
+  background-color: #9A616D;
+  border-color: #9A616D;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 300;
+}

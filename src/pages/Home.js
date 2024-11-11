@@ -27,7 +27,7 @@ const Home = () => {
         {/* Title: All Posts */}
         <Row className="justify-content-center mb-4">
           <Col md={8} className="text-center">
-            <h1 className="all-posts-title">ALL POSTS</h1>
+            <h1 className="all-posts-title">ALL RECIPES</h1>
           </Col>
         </Row>
 
