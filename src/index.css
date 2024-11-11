@@ -11,3 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.home-section {
+  padding-top: 20px;
+}
+
+.search-input {
+  border: 1px solid #ccc;
+  border-right: none;
+}
+
+.all-posts-title {
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.category-nav {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.category-link {
+  color: #000;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.category-link:hover {
+  text-decoration: underline;
+}
+
+.post-image {
+  width: 100%;
+  border-radius: 8px;
+}
