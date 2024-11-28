@@ -10,7 +10,7 @@ const Header = () => {
       {/* Top Navigation Bar */}
       <Navbar expand="lg" className="justify-content-between">
         <Nav className="left-links">
-          <Nav.Link href="/">HOME</Nav.Link>
+          <Nav.Link href="/home">HOME</Nav.Link>
           <Nav.Link href="/add-recipe">ADD RECIPE</Nav.Link>
           <Nav.Link href="/my-recipe">MY RECIPE</Nav.Link>
         </Nav>
@@ -19,10 +19,9 @@ const Header = () => {
         <span className="title">MZANSI FLAVA</span>
         </div>
         <Nav className="social-icons">
-          <Nav.Link href="/login">LOGIN</Nav.Link>
-          <Nav.Link href="#pinterest">
-            <i className="fab fa-pinterest-p"></i>
-          </Nav.Link>
+          <Nav.Link href="/login">USERNAME</Nav.Link>
+          <Nav.Link href="/login">LOGOUT</Nav.Link>
+          
           <Nav.Link href="#twitter">
             <i className="fab fa-twitter"></i>
           </Nav.Link>

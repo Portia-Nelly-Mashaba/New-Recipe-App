@@ -6,5 +6,19 @@
       "email": "pnpnelly@gmail.com",
       "password": "test123"
     }
+  ],
+  "recipes": [
+    {
+      "id": "d3c3",
+      "name": "Chocolate cake",
+      "ingredients": "yhvfgyghjbn",
+      "instructions": "drtfgyiuhjboljk",
+      "category": "Dessert",
+      "prepTime": "15",
+      "servings": "4",
+      "cookTime": "30",
+      "imageUrl": "http://res.cloudinary.com/dmpmbgngu/image/upload/v1731405220/sy6evbomvwjonnw9dhon.jpg",
+      "date": "12/11/2024"
+    }
   ]
 }

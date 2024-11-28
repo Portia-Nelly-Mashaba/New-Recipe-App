@@ -16,7 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // Custom layout component to conditionally render Header
 const Layout = ({ children }) => {
   const location = useLocation();
-  const hideHeaderPaths = ['/login', '/register', '/add-recipe', '*', 'recipe'];
+  const hideHeaderPaths = ['/login', '/register', '/add-recipe', '*', 'recipe', '/'];
 
   return (
     <>
@@ -32,8 +32,9 @@ function App() {
     <ToastContainer />
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/add-recipe" element={<AddEditRecipe />} />
           <Route path="/edit/:id" element={<AddEditRecipe />} />

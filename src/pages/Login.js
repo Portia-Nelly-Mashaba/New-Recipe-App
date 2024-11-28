@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     try {
       // Fetch the users data from db.json
-      const response = await fetch('http://localhost:8000/users');
+      const response = await fetch('http://localhost:2000/users');
       const users = await response.json();
 
       // Check if there’s a match for email and password
@@ -23,7 +23,7 @@ const Login = () => {
       
       if (user) {
         setMessage('Login successful!');
-        navigate('/')
+        navigate('/home')
       } else {
         setMessage('Invalid email or password. Please try again.');
       }

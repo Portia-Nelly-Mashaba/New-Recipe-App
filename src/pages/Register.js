@@ -15,7 +15,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8000/users', {
+      const response = await fetch('http://localhost:2000/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
