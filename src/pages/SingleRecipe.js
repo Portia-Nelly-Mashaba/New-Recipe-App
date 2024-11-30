@@ -56,12 +56,12 @@ const SingleRecipe = () => {
                   className="rounded-circle"
                 />
                 <div className="ms-2">
-                  <small>Admin</small>
+                  <small>Posted</small>
                   <small className="text-muted"> · {recipe.date} </small>
                 </div>
               </div>
               <h1 className="fw-bold">{recipe.name}</h1>
-              <Link to="/home" className="text-primary">
+              <Link to="/home" className="text-primary" style={{ textDecoration: 'none', color: 'inherit' }}>
                 ← Go back to Home
               </Link>
               <div className="mt-3">
@@ -69,11 +69,11 @@ const SingleRecipe = () => {
                   src={recipe.imageUrl}
                   alt={recipe.name}
                   className="img-fluid rounded" 
-                  style={{width: '100%', maxHeight: '600px'}}
+                  style={{width: '100%', maxHeight: '600px', objectFit: 'cover'}}
                 />
               </div>
+
               <div className="mt-4">
-                
                 <div className="d-flex align-items-center">
                   <h4 className="flex-grow-1">Recipe Details</h4>
                   <Badge className="badge bg-primary">{recipe.category}</Badge>

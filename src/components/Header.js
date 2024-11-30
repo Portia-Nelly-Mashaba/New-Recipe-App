@@ -47,9 +47,8 @@ const Header = () => {
     <div className="header-container">
       <Navbar expand="lg" className="justify-content-between">
         <Nav className="left-links">
-          <Nav.Link href="/home">HOME</Nav.Link>
+          <Nav.Link href="/home" style={{ color: '#9A616D' }}>HOME</Nav.Link>
           <Nav.Link href="/add-recipe">ADD RECIPE</Nav.Link>
-          <Nav.Link href="/my-recipe">MY RECIPE</Nav.Link>
         </Nav>
         <div className="title-container">
           <FaAppleAlt className="me-3" style={{ color: '#9A616D', fontSize: '2rem' }} />
@@ -58,27 +57,29 @@ const Header = () => {
         <Nav className="social-icons">
           {isAuthenticated ? (
             <>
-              <Nav.Link href="/profile">{userName}</Nav.Link>
+              <Nav.Link href="/profile" style={{ color: '#9A616D', textTransform: 'uppercase' }}>{userName}</Nav.Link>
               <Nav.Link onClick={handleLogout}>LOGOUT</Nav.Link>
             </>
           ) : (
             <Nav.Link href="/login">LOGIN</Nav.Link>
           )}
-          <Nav.Link href="#twitter">
+          <Nav.Link href="#twitter" style={{ color: '#9A616D'}}>
             <i className="fab fa-twitter"></i>
           </Nav.Link>
-          <Nav.Link href="#instagram">
+          <Nav.Link href="#instagram" style={{ color: '#9A616D'}}>
             <i className="fab fa-instagram"></i>
           </Nav.Link>
         </Nav>
       </Navbar>
       <div className="image-container">
-        <img
-          src="https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=600"
-          alt="Food Background"
-          className="header-image"
-        />
-      </div>
+  <div className="gradient-overlay"></div>
+  <img
+    src="https://images.pexels.com/photos/299348/pexels-photo-299348.jpeg?auto=compress&cs=tinysrgb&w=600"
+    alt="Food Background"
+    className="header-image"
+  />
+</div>
+
     </div>
   );
 };

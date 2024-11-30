@@ -1,117 +1,125 @@
-import React, {useState, useEffect} from 'react';
-import { Container, Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
-import { FaSearch } from 'react-icons/fa';
-import Card from '../components/Card';
+import React, { useState, useEffect } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-
+import Search from '../components/Search';
+import Card from '../components/Card';
+import Category from '../components/Category';
 
 const Home = () => {
   const [data, setData] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
+  const [filteredData, setFilteredData] = useState([]);
+
+  const options = [
+    { label: 'All', value: 'all' },
+    { label: 'Breakfast', value: 'Breakfast' },
+    { label: 'Lunch', value: 'Lunch' },
+    { label: 'Dinner', value: 'Dinner' },
+    { label: 'Dessert', value: 'Dessert' },
+    { label: 'Appetizers & Snacks', value: 'Appetizers & Snacks' },
+    { label: 'Vegan', value: 'Vegan' },
+    { label: 'Drinks', value: 'Drinks' },
+  ];
 
   useEffect(() => {
-    loadRecipeData();
-  }, [])
+    loadRecipeData(); // Load all recipes on mount
+  }, []);
 
+  // Load all recipes
   const loadRecipeData = async () => {
-    const response = await axios.get('http://localhost:2000/recipes')
-    if(response.status === 200){
-      setData(response.data)
-    } else {
-      toast.error('Somehing went wrong!')
-    }
-  };
-
-  // console.log('data', data);
-
-  const handleDelete = async (id) => {
-    if (window.confirm("Are you sure you want to delete the recipe?")) {
-      try {
-        const response = await axios.delete(`http://localhost:2000/recipes/${id}`);
-        if (response.status === 200) {
-          toast.success("Recipe Deleted Successfully");
-          loadRecipeData(); // Refresh the recipe list
-        } else {
-          toast.error("Something went wrong!");
-        }
-      } catch (error) {
-        console.error("Error deleting recipe:", error);
-        toast.error("An error occurred while deleting the recipe.");
+    try {
+      const response = await axios.get('http://localhost:2000/recipes');
+      if (response.status === 200) {
+        setData(response.data);
+        setFilteredData(response.data); // Initially show all data
+      } else {
+        toast.error('Something went wrong!');
       }
+    } catch (error) {
+      toast.error('Failed to fetch recipes.');
+      console.error(error);
     }
   };
-  
 
-  const excerpt = (str) => {
-    if(str.length > 50) {
-      str = str.substring(0, 60) + '...'
+  // Handle category selection
+  const handleCategory = (category) => {
+    if (category === 'all') {
+      setFilteredData(data); // Show all data for "All Posts"
+    } else {
+      const filtered = data.filter((item) => item.category === category);
+      setFilteredData(filtered); // Update filtered data
     }
-    return str;
-  }
-  
+  };
+
+  // Handle search input change
+  const onInputChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  // Handle search form submission
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.get(`http://localhost:2000/recipes?q=${searchValue}`);
+      if (response.status === 200) {
+        setFilteredData(response.data);
+      } else {
+        toast.error('Something went wrong!');
+      }
+    } catch (error) {
+      toast.error('Failed to fetch search results.');
+      console.error(error);
+    }
+  };
+
+  // Truncate long strings
+  const excerpt = (str) => {
+    return str.length > 60 ? str.substring(0, 60) + '...' : str;
+  };
+
   return (
     <section className="home-section">
-      <Container>
-        
-        {/* Search Bar */}
-        <Row className="justify-content-center mb-4">
-          <Col md={8} lg={6}>
-            <InputGroup>
-              <FormControl
-                placeholder="Search..."
-                aria-label="Search"
-                className="search-input"
-              />
-              <Button variant="dark">
-                <FaSearch />
-              </Button>
-            </InputGroup>
-          </Col>
-        </Row>
+      <div className="container">
+        <div className="row justify-content-center mb-4">
+          <Search
+            searchValue={searchValue}
+            onInputChange={onInputChange}
+            handleSearch={handleSearch}
+          />
+        </div>
 
-        {/* Title: All Posts */}
-        <Row className="justify-content-center mb-4">
+        
+
+        <Row className="justify-content-center mb-4 mt-4">
           <Col md={8} className="text-center">
             <h1 className="all-posts-title">ALL RECIPES</h1>
           </Col>
         </Row>
 
-        {/* Categories */}
-        <Row className="justify-content-center mb-4">
-          <Col md={8} className="text-center">
-            <nav className="category-nav">
-              <a href="#all" className="category-link">All Posts</a>
-              <a href="#quick-easy" className="category-link">Breakfast</a>
-              <a href="#vegetarian" className="category-link">Lunch</a>
-              <a href="#main-course" className="category-link">Dessert</a>
-              <a href="#quick-easy" className="category-link">Appetizers & Snacks</a>
-              <a href="#vegetarian" className="category-link">Vegan</a>
-              <a href="#main-course" className="category-link">Drinks</a>
-            </nav>
-          </Col>
-        </Row>
-        
-      </Container>
 
-      {/* <Card /> */}
-      {/* Recipes */}
+        {/* Pass category options and handler */}
+        <Category handleCategory={handleCategory} options={options} />
+
+      </div>
+
       <div className="row justify-content-center" style={{ gap: '2.5rem' }}>
-          {data.length === 0 && (
-            <div className="container my-4">No Recipe Found</div>
-          )} 
+        {filteredData.length === 0 && (
+          <div className="container my-4">No Recipe Found</div>
+        )}
 
-           {data && data.map((item, index) => (
-                <Card key={index}  
-                      {...item}
-                      ingredients={excerpt(item.ingredients)}
-                      instructions={excerpt(item.instructions)}
-                      handleDelete ={handleDelete}
-                />
-            ))}
-        </div>
+        {filteredData.map((item, index) => (
+          <Card
+            key={index}
+            {...item}
+            ingredients={excerpt(item.ingredients)}
+            instructions={excerpt(item.instructions)}
+            handleDelete={() => console.log(`Delete ${item.id}`)}
+          />
+        ))}
+      </div>
     </section>
   );
 };
 
 export default Home;
-

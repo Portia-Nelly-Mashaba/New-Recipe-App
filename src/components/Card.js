@@ -3,7 +3,7 @@ import { FaTrash, FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Badge from './Badge';
 
-const Card = ({ name, ingredients, instructions, category, imageUrl, handleDelete, id }) => {
+const Card = ({ name, ingredients, instructions, category, imageUrl, handleDelete, date, id }) => {
   return (
     <div className="card p-2 shadow-sm" style={{ maxWidth: '450px' }}>
       <img
@@ -19,11 +19,17 @@ const Card = ({ name, ingredients, instructions, category, imageUrl, handleDelet
           className="rounded-circle me-2"
         />
         <div>
-          Admin &middot; <br />
-          Mar 22, 2023 &middot; 2 min read
+          Posted &middot; {date}&middot; 
         </div>
       </div>
-      <h5 className="fw-bold">{name}</h5>
+      {/* Name with hover styling */}
+      <Link
+        to={`/recipe/${id}`}
+        className="name-link"
+        style={{ textDecoration: 'none', color: 'inherit' }}
+      >
+        <h5 className="fw-bold" style={{ cursor: 'pointer' }}>{name}</h5>
+      </Link>
       <p className="fw-bold mb-0">Ingredients</p>
       <p className="text-muted" style={{ fontSize: '0.9rem' }}>
         {ingredients}
@@ -31,7 +37,9 @@ const Card = ({ name, ingredients, instructions, category, imageUrl, handleDelet
       <p className="fw-bold mb-0">Instructions</p>
       <p className="text-muted" style={{ fontSize: '0.9rem' }}>
         {instructions}
-        <Link to={`/recipe/${id}`}>Read More</Link>
+        <Link to={`/recipe/${id}`} style={{ textDecoration: 'none', color: 'blue' }}>
+          Read More
+        </Link>
       </p>
       <hr />
       <div className="d-flex justify-content-between align-items-center text-muted">
@@ -45,7 +53,7 @@ const Card = ({ name, ingredients, instructions, category, imageUrl, handleDelet
             <FaTrash color="red" style={{ cursor: 'pointer', fontSize: '1.2rem' }} />
           </button>
           <Link to={`/edit/${id}`} style={{ textDecoration: 'none', marginLeft: '10px' }}>
-            <FaEdit color="blue" style={{ cursor: 'pointer', fontSize: '1.3rem' }} />
+            <FaEdit color="blue" style={{ cursor: 'pointer', fontSize: '1.3rem', color:'#04babf' }} />
           </Link>
         </div>
       </div>
