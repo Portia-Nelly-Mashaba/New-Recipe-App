@@ -6,7 +6,7 @@ import Search from '../components/Search';
 import Card from '../components/Card';
 import Category from '../components/Category';
 
-const Home = () => {
+const Home = ({ userId }) => {
   const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [filteredData, setFilteredData] = useState([]);
@@ -31,8 +31,9 @@ const Home = () => {
     try {
       const response = await axios.get('http://localhost:2000/recipes');
       if (response.status === 200) {
-        setData(response.data);
-        setFilteredData(response.data); // Initially show all data
+        const userRecipes = response.data.filter(recipe => recipe.userId === userId);
+        setData(userRecipes);
+        setFilteredData(userRecipes); // Initially show all data
       } else {
         toast.error('Something went wrong!');
       }
@@ -63,7 +64,8 @@ const Home = () => {
     try {
       const response = await axios.get(`http://localhost:2000/recipes?q=${searchValue}`);
       if (response.status === 200) {
-        setFilteredData(response.data);
+        const userRecipes = response.data.filter(recipe => recipe.userId === userId);
+        setFilteredData(userRecipes);
       } else {
         toast.error('Something went wrong!');
       }
@@ -89,18 +91,14 @@ const Home = () => {
           />
         </div>
 
-        
-
         <Row className="justify-content-center mb-4 mt-4">
           <Col md={8} className="text-center">
             <h1 className="all-posts-title">ALL RECIPES</h1>
           </Col>
         </Row>
 
-
         {/* Pass category options and handler */}
         <Category handleCategory={handleCategory} options={options} />
-
       </div>
 
       <div className="row justify-content-center" style={{ gap: '2.5rem' }}>
