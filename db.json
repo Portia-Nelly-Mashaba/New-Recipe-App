@@ -5,20 +5,53 @@
       "name": "Portia",
       "email": "pnpnelly@gmail.com",
       "password": "test123"
+    },
+    {
+      "id": "bb5e",
+      "name": "Nelly Msiza",
+      "email": "pnpnelisiwe@gmail.com",
+      "password": "test123"
     }
   ],
   "recipes": [
     {
-      "id": "d3c3",
-      "name": "Chocolate cake",
-      "ingredients": "yhvfgyghjbn",
-      "instructions": "drtfgyiuhjboljk",
-      "category": "Dessert",
+      "id": "4429",
+      "name": "Banana Oat Pancakes",
+      "ingredients": "1 ripe banana\n1 egg\n1/2 cup rolled oats\n1/4 teaspoon baking powder (optional for fluffiness)\nA pinch of salt",
+      "instructions": "Mash the banana in a bowl until smooth.\nAdd the egg and mix until well combined.\nStir in the oats, baking powder, and salt to form a batter.\nHeat a non-stick pan over medium heat and lightly grease it with oil or butter.\nPour small amounts of batter (about 2 tablespoons) into the pan to form pancakes.\nCook for 1-2 minutes on each side, or until golden brown.\nServe warm with your favorite toppings like syrup, fruit, or yogurt.",
+      "category": "Breakfast",
       "prepTime": "15",
-      "servings": "4",
-      "cookTime": "30",
-      "imageUrl": "http://res.cloudinary.com/dmpmbgngu/image/upload/v1731405220/sy6evbomvwjonnw9dhon.jpg",
-      "date": "12/11/2024"
+      "servings": "7",
+      "cookTime": "20",
+      "imageUrl": "http://res.cloudinary.com/dmpmbgngu/image/upload/v1732958377/l06rkckgawne90g2gh28.jpg",
+      "date": "30/11/2024",
+      "userId": "bb5e"
+    },
+    {
+      "id": "0a98",
+      "name": "English Breakfast ",
+      "ingredients": "Bacon - 2 slices\nSausages - 2 links\nEggs - 2 (fried or scrambled)\nTomatoes - 1, halved\nMushrooms - 1 cup, sliced\nBaked beans - 1/2 cup\nBread - 2 slices\nButter - for frying\nBlack pudding (optional) - 2 slices",
+      "instructions": "Prepare the bacon and sausages:\n\nHeat a large skillet over medium heat and cook the bacon until crispy. Set aside.\nIn the same skillet, cook the sausages until browned and cooked through.\nCook the mushrooms and tomatoes:\n\nAdd butter to the skillet and sauté the mushrooms until tender. Set aside.\nPlace the tomato halves cut side down in the skillet and cook until slightly charred.\nFry the bread:\n\nAdd more butter to the skillet and fry the bread until golden and crispy.\nHeat the baked beans:\n\nIn a small saucepan, warm the baked beans over low heat.\nPrepare the eggs:\n\nFry or scramble the eggs in a separate pan with a bit of butter.\nServe:\n\nArrange all the components on a plate and serve hot.",
+      "category": "Breakfast",
+      "prepTime": "15",
+      "servings": "7",
+      "cookTime": "45",
+      "imageUrl": "http://res.cloudinary.com/dmpmbgngu/image/upload/v1732959545/jyqxjhw1gfpu996isyvf.jpg",
+      "date": "30/11/2024",
+      "userId": "bb5e"
+    },
+    {
+      "id": "6e9f",
+      "name": "Garlic Butter Sirloin Steak",
+      "ingredients": " (12-oz) sirloin steaks or ribeye steaks\n1 tablespoon olive oil\n3 tablespoons unsalted butter\n2 garlic cloves, minced\n1 teaspoon chopped fresh parsley (optional)\nKosher salt and freshly ground black pepper, to taste",
+      "instructions": "Prepare the Steak:\n\nPat the steaks dry with a paper towel.\nSeason both sides generously with salt and pepper. Let them sit at room temperature for 20 minutes.\nCook the Steak:\n\nHeat a heavy skillet (cast iron preferred) over medium-high heat. Add olive oil.\nWhen the oil is hot and shimmering, add the steaks.\nSear for 3–4 minutes on each side for medium-rare, or longer for your desired doneness.\nMake the Garlic Butter:\n\nLower the heat to medium. Add the butter and garlic to the skillet.\nUse a spoon to baste the steaks with the melted garlic butter for 1–2 minutes.\nRest and Serve:\n\nRemove the steaks from the skillet and let them rest for 5 minutes to retain juices.\nSprinkle with parsley and serve hot with your favorite sides, such as mashed potatoes or sautéed vegetables.\n",
+      "category": "Dinner",
+      "prepTime": "10",
+      "servings": "3",
+      "cookTime": "20",
+      "imageUrl": "http://res.cloudinary.com/dmpmbgngu/image/upload/v1732964298/lfwykwxyql6yktnyz9j1.jpg",
+      "date": "30/11/2024",
+      "userId": "bb5e"
     }
   ]
 }

@@ -1,16 +1,13 @@
-// Register.js
 import React, { useState } from 'react';
 import { FaAppleAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
-  // State to manage form inputs
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -26,9 +23,12 @@ const Register = () => {
           password: password,
         }),
       });
+
       if (response.ok) {
+        const user = await response.json(); // Assuming the API returns the user object
+        localStorage.setItem('user', JSON.stringify(user)); // Store user in local storage
         setMessage('Registration successful!');
-        navigate('/login');
+        navigate('/home'); // Navigate to home page
       } else {
         setMessage('Registration failed. Please try again.');
       }
@@ -45,72 +45,63 @@ const Register = () => {
           <div className="col col-xl-10">
             <div className="card" style={{ borderRadius: '1rem' }}>
               <div className="row g-0">
-                
-                {/* Form section on the left */}
                 <div className="col-md-6 col-lg-7 d-flex align-items-center">
                   <div className="card-body p-4 p-lg-5 text-black">
                     <form onSubmit={handleRegister}>
-                      {/* Logo and Title */}
                       <div className="d-flex align-items-center mb-3 pb-1">
                         <FaAppleAlt className="me-3" style={{ color: '#9A616D', fontSize: '2rem' }} />
                         <span className="h1 fw-bold mb-0">Mzansi Flava App</span>
                       </div>
                       <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: '1px' }}>Create your account</h5>
-                      
-                      {/* Name Input */}
+
                       <div className="form-outline mb-4">
-                        <input 
-                          type="text" 
-                          id="form2ExampleName" 
-                          className="form-control form-control-lg" 
-                          value={name} 
+                        <input
+                          type="text"
+                          id="form2ExampleName"
+                          className="form-control form-control-lg"
+                          value={name}
                           onChange={(e) => setName(e.target.value)}
                           required
                         />
                         <label className="form-label" htmlFor="form2ExampleName">Full Name</label>
                       </div>
 
-                      {/* Email Input */}
                       <div className="form-outline mb-4">
-                        <input 
-                          type="email" 
-                          id="form2ExampleEmail" 
-                          className="form-control form-control-lg" 
-                          value={email} 
+                        <input
+                          type="email"
+                          id="form2ExampleEmail"
+                          className="form-control form-control-lg"
+                          value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           required
                         />
                         <label className="form-label" htmlFor="form2ExampleEmail">Email address</label>
                       </div>
 
-                      {/* Password Input */}
                       <div className="form-outline mb-4">
-                        <input 
-                          type="password" 
-                          id="form2ExamplePassword" 
-                          className="form-control form-control-lg" 
-                          value={password} 
+                        <input
+                          type="password"
+                          id="form2ExamplePassword"
+                          className="form-control form-control-lg"
+                          value={password}
                           onChange={(e) => setPassword(e.target.value)}
                           required
                         />
                         <label className="form-label" htmlFor="form2ExamplePassword">Password</label>
                       </div>
 
-                      {/* Register Button */}
                       <div className="pt-1 mb-4">
-                        <button 
-                          className="btn btn-block" 
-                          style={{ backgroundColor: '#9A616D', color: 'white' }} 
+                        <button
+                          className="btn btn-block"
+                          style={{ backgroundColor: '#9A616D', color: 'white' }}
                           type="submit"
                         >
                           Register
                         </button>
                       </div>
 
-                      {/* Display Success/Error Message */}
                       {message && <p className="text-center" style={{ color: '#9A616D' }}>{message}</p>}
 
-                      {/* Links */}
                       <p className="mb-5 pb-lg-2" style={{ color: '#393f81' }}>
                         Already have an account? <a href="/login" style={{ color: '#393f81' }}>Sign in here</a>
                       </p>
@@ -118,7 +109,6 @@ const Register = () => {
                   </div>
                 </div>
 
-                {/* Image section on the right */}
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
                     src="https://images.pexels.com/photos/9589798/pexels-photo-9589798.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -127,7 +117,6 @@ const Register = () => {
                     style={{ borderRadius: '0 1rem 1rem 0', objectFit: 'cover', height: '100%' }}
                   />
                 </div>
-
               </div>
             </div>
           </div>
