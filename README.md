@@ -110,7 +110,7 @@ Here's an example of how your `db.json` file might look:
 
 ---
 
-### Quiz Start
+### Screenshots
 ![Login](src/assets/pic1.PNG)
 ![Register](src/assets/register.PNG)
 ![Home Screen](src/assets/pic2.PNG)
