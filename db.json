@@ -28,19 +28,6 @@
       "userId": "bb5e"
     },
     {
-      "id": "0a98",
-      "name": "English Breakfast ",
-      "ingredients": "Bacon - 2 slices\nSausages - 2 links\nEggs - 2 (fried or scrambled)\nTomatoes - 1, halved\nMushrooms - 1 cup, sliced\nBaked beans - 1/2 cup\nBread - 2 slices\nButter - for frying\nBlack pudding (optional) - 2 slices",
-      "instructions": "Prepare the bacon and sausages:\n\nHeat a large skillet over medium heat and cook the bacon until crispy. Set aside.\nIn the same skillet, cook the sausages until browned and cooked through.\nCook the mushrooms and tomatoes:\n\nAdd butter to the skillet and sauté the mushrooms until tender. Set aside.\nPlace the tomato halves cut side down in the skillet and cook until slightly charred.\nFry the bread:\n\nAdd more butter to the skillet and fry the bread until golden and crispy.\nHeat the baked beans:\n\nIn a small saucepan, warm the baked beans over low heat.\nPrepare the eggs:\n\nFry or scramble the eggs in a separate pan with a bit of butter.\nServe:\n\nArrange all the components on a plate and serve hot.",
-      "category": "Breakfast",
-      "prepTime": "15",
-      "servings": "7",
-      "cookTime": "45",
-      "imageUrl": "http://res.cloudinary.com/dmpmbgngu/image/upload/v1732959545/jyqxjhw1gfpu996isyvf.jpg",
-      "date": "30/11/2024",
-      "userId": "bb5e"
-    },
-    {
       "id": "6e9f",
       "name": "Garlic Butter Sirloin Steak",
       "ingredients": " (12-oz) sirloin steaks or ribeye steaks\n1 tablespoon olive oil\n3 tablespoons unsalted butter\n2 garlic cloves, minced\n1 teaspoon chopped fresh parsley (optional)\nKosher salt and freshly ground black pepper, to taste",
@@ -52,6 +39,19 @@
       "imageUrl": "http://res.cloudinary.com/dmpmbgngu/image/upload/v1732964298/lfwykwxyql6yktnyz9j1.jpg",
       "date": "30/11/2024",
       "userId": "bb5e"
+    },
+    {
+      "id": "84dc",
+      "name": "English Breakfast Recipe",
+      "ingredients": "2 eggs\n\n2 sausages\n\n2 slices of bacon\n\n1 tomato, halved\n\n1 cup baked beans\n\n2 slices of toast\n\n1/2 cup mushrooms, sliced\n\n1 tbsp butter\n\n1 tsp olive oil\n\nSalt and pepper to taste",
+      "instructions": "\n\nPrepare the Ingredients:\n\nSlice the mushrooms and halve the tomato.\n\nPreheat the oven to 180°C (350°F).\n\nCook the Sausages and Bacon:\n\nHeat a pan over medium heat and cook the sausages until browned and fully cooked.\n\nIn the same pan, fry the bacon until crispy.\n\nGrill the Tomato and Toast:\n\nPlace the tomato halves on a baking tray, drizzle with olive oil, and season with salt and pepper.\n\nToast the bread slices until golden brown.\n\nSauté the Mushrooms:\n\nHeat butter in a pan and sauté the mushrooms until tender.\n\nCook the Eggs:\n\nFry or scramble the eggs as preferred.\n\nHeat the Baked Beans:\n\nWarm up the baked beans in a saucepan over low heat.\n\nAssemble the Breakfast:\n\nArrange all the cooked items on a plate and serve hot.",
+      "category": "Breakfast",
+      "prepTime": "15",
+      "servings": "2",
+      "cookTime": "30",
+      "imageUrl": "http://res.cloudinary.com/dmpmbgngu/image/upload/v1738919946/ohb7of7uy96l7texldmg.jpg",
+      "date": "07/02/2025",
+      "userId": "4969"
     }
   ]
 }

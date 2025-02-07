@@ -31,7 +31,10 @@ const Home = ({ userId }) => {
     try {
       const response = await axios.get('http://localhost:2000/recipes');
       if (response.status === 200) {
-        const userRecipes = response.data.filter(recipe => recipe.userId === userId);
+        // Check if userId is available before filtering
+        const userRecipes = userId
+          ? response.data.filter(recipe => recipe.userId === userId)
+          : response.data;
         setData(userRecipes);
         setFilteredData(userRecipes); // Initially show all data
       } else {
@@ -42,6 +45,7 @@ const Home = ({ userId }) => {
       console.error(error);
     }
   };
+  
 
   // Handle category selection
   const handleCategory = (category) => {
@@ -64,7 +68,9 @@ const Home = ({ userId }) => {
     try {
       const response = await axios.get(`http://localhost:2000/recipes?q=${searchValue}`);
       if (response.status === 200) {
-        const userRecipes = response.data.filter(recipe => recipe.userId === userId);
+        const userRecipes = userId
+          ? response.data.filter(recipe => recipe.userId === userId)
+          : response.data;
         setFilteredData(userRecipes);
       } else {
         toast.error('Something went wrong!');
@@ -74,6 +80,31 @@ const Home = ({ userId }) => {
       console.error(error);
     }
   };
+
+  //handle delete
+  const handleDelete = async (id) => {
+    if (!id) {
+      toast.error("Invalid recipe ID");
+      return;
+    }
+  
+    try {
+      const response = await axios.delete(`http://localhost:2000/recipes/${id}`);
+      if (response.status === 200) {
+        toast.success("Recipe deleted successfully!");
+        setData((prevData) => prevData.filter((recipe) => recipe.id !== id));
+        setFilteredData((prevFilteredData) =>
+          prevFilteredData.filter((recipe) => recipe.id !== id)
+        );
+      } else {
+        toast.error("Failed to delete the recipe.");
+      }
+    } catch (error) {
+      toast.error("Error deleting recipe.");
+      console.error(error);
+    }
+  };
+  
 
   // Truncate long strings
   const excerpt = (str) => {
@@ -112,7 +143,7 @@ const Home = ({ userId }) => {
             {...item}
             ingredients={excerpt(item.ingredients)}
             instructions={excerpt(item.instructions)}
-            handleDelete={() => console.log(`Delete ${item.id}`)}
+            handleDelete={() => handleDelete(item.id)}
           />
         ))}
       </div>
